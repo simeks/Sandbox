@@ -1,0 +1,14 @@
+.tundra2.dag
+.tundra2.dag.json
+.tundra2.digestcache
+.tundra2.scancache
+.tundra2.state
+t2-output/
+builder-output/
+data/.builder/
+Binaries/
+Content/.builder/
+Release/
+test/
+Source/Runtime/Engine/EngineVersion.h
+External/
