@@ -3,6 +3,12 @@ Disclaimer
 The code and tools have not been maintained in a while so I would be surprised if it compiles and runs as expected.
 
 
+Sandbox
+=======
+Your typical game engine hobby project. Far from something you would actually use but it was a good learning experience. Mostly focused on rendering and asset building. 
+Heavily inspired by the Bitsquid engine (which now goes by the name Stingray). 
+
+
 Prerequisites
 =============
 - Microsoft Visual Studio 2013 
