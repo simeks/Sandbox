@@ -4,9 +4,9 @@ import subprocess
 import shutil
 
 def get_commit_id():
-    proc = subprocess.Popen(["hg","id"], stdout=subprocess.PIPE)
+    proc = subprocess.Popen(["git","rev-parse", "--short","HEAD"], stdout=subprocess.PIPE)
     id = proc.stdout.readline().strip()
-    return id.split("+")[0]
+    return id.decode("utf-8")
 
 def write_version_header(file):
     commit_id = get_commit_id()

@@ -5,7 +5,7 @@ import os
 import subprocess
 import shutil
 
-builder_exec = "Binaries/Win32/Builder-release.exe"
+builder_exec = "Binaries/Win64/Builder-release.exe"
 
 
 def copy_dep(target_path):
@@ -48,9 +48,9 @@ def run_builder(content_source, content_target, server_mode = True):
 
 
 def get_commit_id():
-    proc = subprocess.Popen(["hg","id"], stdout=subprocess.PIPE)
+    proc = subprocess.Popen(["git","rev-parse", "--short","HEAD"], stdout=subprocess.PIPE)
     id = proc.stdout.readline().strip()
-    return id.split("+")[0]
+    return id.decode("utf-8")
 
 def build_program(target, platform, version, clean_build = False):
     arg = ""
