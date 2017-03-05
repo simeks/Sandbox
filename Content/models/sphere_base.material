@@ -1,0 +1,12 @@
+shader = {
+	name = "core/shaders/base"
+	options = [
+		"NORMAL_MAP"
+		"DIFFUSE_MAP"
+		"INSTANCED"
+	]
+}
+textures = {
+	diffuse_map = "textures/hex"
+	normal_map = "textures/hex_normal"
+}

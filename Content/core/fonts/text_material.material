@@ -1,0 +1,4 @@
+shader = { 
+	name = "core/shaders/gui"
+	options = [ "TEXT" ] 
+}

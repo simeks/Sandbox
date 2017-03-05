@@ -1,0 +1,20 @@
+resources = [
+	["material", "core/debug_gui/gbuffer0"]
+	["material", "core/debug_gui/gbuffer1"]
+	["material", "core/debug_gui/gbuffer2"]
+
+	["material", "core/debug_gui/shadow_map0"]
+	["material", "core/debug_gui/shadow_map1"]
+	["material", "core/debug_gui/shadow_map2"]
+	
+	["material", "core/gui/blank"]
+	["material", "core/gui/line_drawer"]
+	
+	["material", "core/fonts/text_material"]
+	["font", "core/fonts/consolas_small"]
+	
+	["shader", "core/shaders/line_drawer"]
+	["shader", "core/shaders/gui"]
+	["shader", "core/shaders/base"]
+	
+]

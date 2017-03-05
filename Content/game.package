@@ -1,0 +1,9 @@
+resources = [
+	["material", "models/test_map_base"]
+	["mesh", "models/test_map"]
+
+	["mesh", "models/sphere"]
+	["material", "models/sphere_base"]
+	["texture", "textures/hex"]
+	["texture", "textures/hex_normal"]
+]

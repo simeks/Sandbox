@@ -1,0 +1,82 @@
+render_states = {
+	default = {
+
+		depth_enable = "true"
+		depth_write_enable = "true"
+		depth_func = "less"
+		stencil_enable = "false"
+	}
+}
+
+sampler_states = {
+	diffuse_sampler = {
+		srgb = "true"
+
+		address_u = "wrap"
+    	address_v = "wrap"
+
+	}
+
+	normal_sampler = {
+		srgb = "false"
+
+		address_u = "wrap"
+    	address_v = "wrap"
+
+	}
+
+	shadow_sampler_pcf = {
+		srgb = "false"
+
+		filter = "comparison_linear"
+		address_u = "border"
+    	address_v = "border"
+    	comparison_func = "less"
+	}	
+}
+
+variables = [
+]
+
+options = [
+	{ name = "Diffuse map" define = "DIFFUSE_MAP" description = "Desc" } 
+	{ name = "Normal map" define = "NORMAL_MAP" description = "Desc" } 
+	{ name = "Instancing" define = "INSTANCED" description = "Desc" } 
+] 
+
+techniques = {
+	default = {
+		instance_data = [
+			{ name = "world" type = "matrix4x4" }
+		]
+		sampler_states = [
+			{ texture = "diffuse_map" state = "diffuse_sampler" }
+			{ texture = "normal_map" state = "normal_sampler" }
+		]
+		passes = [
+			{ 
+				render_state = "default" 
+
+				vertex_shader = { hlsl_file = "hlsl/base.hlsl" entry = "BaseVS" target = "vs_5_0" } 
+				pixel_shader = { hlsl_file = "hlsl/base.hlsl" entry = "BasePS" target = "ps_5_0" } 
+			}
+		]
+	}
+
+	write_shadow_map = {
+		instance_data = [
+			{ name = "world" type = "matrix4x4" }
+			{ name = "slice_index" type = "scalar" }
+		]
+		passes = [
+			{ 
+				render_state = "default" 
+
+				vertex_shader = { hlsl_file = "hlsl/base.hlsl" entry = "DepthVS" target = "vs_5_0" } 
+				geometry_shader = { hlsl_file = "hlsl/base.hlsl" entry = "DepthGS" target = "gs_5_0" } 
+			}
+		]
+
+	}
+
+}

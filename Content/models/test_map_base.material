@@ -1,0 +1,5 @@
+shader = {
+	name = "core/shaders/base"
+	options = [
+	]
+}

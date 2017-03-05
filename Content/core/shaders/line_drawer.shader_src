@@ -1,0 +1,18 @@
+render_states = {
+	default = {
+	}
+}
+
+techniques = {
+	default = {
+		passes = [
+			{ 
+				render_state = "default" 
+
+				vertex_shader = { hlsl_file = "hlsl/line_drawer.hlsl" entry = "VSMain" target = "vs_4_0" } 
+				pixel_shader = { hlsl_file = "hlsl/line_drawer.hlsl" entry = "PSMain" target = "ps_4_0" } 
+			}
+		]
+	}
+
+}

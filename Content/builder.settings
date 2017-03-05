@@ -1,0 +1,66 @@
+setting_profiles = {
+	development = {
+		hlsl_optimization_level = 0
+		hlsl_debug = true
+	}
+	release = {
+		hlsl_optimization_level = 3
+		hlsl_debug = false
+	}
+	
+}
+compilers = [
+	{ 
+		type = "material" 
+		source_type = "material" 
+		action = "material_compiler" 
+	}
+	{
+		type = "texture"
+		source_type = "texture_src"
+		action = "texture_compiler"
+	}
+	{ 
+		type = "shader" 
+		source_type = "shader_src" 
+		action = "shader_compiler" 
+	}
+	{ 
+		type = "mesh" 
+		source_type = "dae" 
+		action = "mesh_compiler" 
+	}
+	{ 
+		type = "lua" 
+		source_type = "lua" 
+		action = "copy" 
+	}
+	{ 
+		type = "render_setup" 
+		source_type = "render_setup" 
+		action = "copy" 
+	}
+	{ 
+		type = "settings" 
+		source_type = "settings" 
+		action = "copy" 
+	}
+	{
+		type = "package"
+		source_type = "package"
+		action = "package_compiler"
+	}
+	{
+		type = "font"
+		source_type = "fnt"
+		action = "font_compiler"
+	}
+]
+
+ignore_list = [
+	"builder.settings"
+]
+
+console_server_port = 25017
+
+

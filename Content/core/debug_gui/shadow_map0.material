@@ -1,0 +1,7 @@
+shader = { 
+	name = "core/shaders/gui"
+	options = [ "TEXTURE_ARRAY" ]
+	variables = [
+		{ name = "tex_array_index" type = "scalar" value = 0 }	
+	]
+}

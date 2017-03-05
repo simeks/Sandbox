@@ -1,0 +1,11 @@
+renderer = {
+	adapter_index = 0
+	fullscreen = false
+	resolution_width = 1680
+	resolution_height = 1050
+	vsync = false
+}
+
+render_setup = "application.render_setup"
+
+window_name = "Sandbox"

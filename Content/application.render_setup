@@ -1,0 +1,56 @@
+global_resources = [
+	{ name = "depth_stencil" type="render_target" x_scale=1 y_scale=1 format = "D24S8" }
+	{ name = "cascaded_shadow_map" type="render_target" width=2048 height=2048 format = "D32F" array_size=3 }
+]
+
+render_views = [
+	{
+		name = "world"
+		type = "world_render_view"
+
+		resources = [
+			["cascaded_shadow_map", "cascaded_shadow_map"]
+		]
+	}
+	{
+		name = "shadow_mapping"
+		type = "shadow_mapping_view"
+		slice_count = 3
+		light_direction_var = "sun_light_direction"
+	}
+
+]
+
+
+layers = [
+	{
+		name = "shadows"
+		depth_stencil_target = "cascaded_shadow_map"
+		depth_sort = "FRONT_BACK"
+		clear = "depth stencil"
+
+		technique = "write_shadow_map"
+		
+		render_view = "shadow_mapping"
+	}
+	{
+		name = "main"
+		render_targets = "back_buffer" 
+		depth_stencil_target = "depth_stencil"
+		depth_sort = "FRONT_BACK"
+		clear = "color depth stencil"
+
+		render_view = "world"
+	}
+]
+
+shading_environments = [
+	{
+		name = "main"
+		variables = [
+			{ name = "sun_light_direction" type = "vector3" value = [0,1,-0.1] }
+			{ name = "sun_light_color" type = "vector3" value = [0.9,1,1] }
+		]
+	}
+
+]

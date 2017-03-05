@@ -1,0 +1,40 @@
+render_states = {
+	default = {
+		blend_enable = "true"
+		src_blend = "src_alpha"
+		dest_blend = "inv_src_alpha"
+		blend_op = "add"
+		cull_mode = "none"
+	}
+}
+
+sampler_states = {
+	diffuse_sampler = {
+		srgb = "false"
+		address_u = "wrap"
+    	address_v = "wrap"
+	}
+}
+
+options = [
+	{ name = "Texture" define = "TEXTURED" description = "Desc" } 
+	{ name = "Texture Array" define = "TEXTURE_ARRAY" description = "Desc" } 
+	{ name = "Text" define = "TEXT" description = "Desc" }  
+] 
+
+techniques = {
+	default = {
+		sampler_states = [
+			{ texture = "diffuse_map" state = "diffuse_sampler" }
+		]
+		passes = [
+			{ 
+				render_state = "default" 
+
+				vertex_shader = { hlsl_file = "hlsl/gui.hlsl" entry = "VSMain" target = "vs_5_0" } 
+				pixel_shader = { hlsl_file = "hlsl/gui.hlsl" entry = "PSMain" target = "ps_4_0" } 
+			}
+		]
+	}
+
+}
