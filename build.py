@@ -7,7 +7,8 @@ import shutil
 
 
 # By default we build everything as x64, set this to False if you want 32bit
-build_win64 = True
+# Some things doesn't seem to work (nvimage) in x64 so we roll 32bits.
+build_win64 = False
 
 if build_win64:
     builder_exec = "Binaries/Win64/Builder-release.exe"
@@ -150,10 +151,12 @@ def main(argv):
 
     if argv[1] == "setup":
         setup_directories()
-    elif argv[1] == "assets":
+    elif argv[1] == "build_assets":
         run_builder("Content", "Binaries/Content", False)
     elif argv[1] == "release":
         build_release()
+    else:
+        print('Invalid command')
 
 if __name__ == "__main__":
     main(sys.argv)
