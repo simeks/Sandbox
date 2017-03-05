@@ -3,7 +3,7 @@ require "tundra.syntax.glob"
 DefRule {
 	Name = "Setup",
 	Pass = "SetupPass",
-	Command = "build.py setup",
+	Command = "python build.py setup",
 	ConfigInvariant = true,
 	
 	Blueprint = {
@@ -19,7 +19,7 @@ DefRule {
 DefRule {
 	Name = "VersionGenerator",
 	Pass = "CodeGeneration",
-	Command = "version.py $(@)",
+	Command = "python version.py $(@)",
 	ConfigInvariant = true,
 	
 	Blueprint = {

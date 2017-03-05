@@ -37,7 +37,7 @@ def setup_directories(base_dir = "Binaries/"):
 def run_builder(content_source, content_target, server_mode = True):
     setup_directories()
     if (subprocess.call(["tundra2", "Builder", "release"]) != 0):
-        print "Could not run builder"
+        print("Could not run builder")
         return
     cmd = [builder_exec,"--source",content_source,"--target",content_target]
     if server_mode:
@@ -60,11 +60,11 @@ def build_program(target, platform, version, clean_build = False):
     return subprocess.call(cmd)
 
 def run_tests():
-    print "\n===== Testing Win64 ====="
+    print("\n===== Testing Win64 =====")
     ret = subprocess.call("Binaries/Win64/Test_Foundation-release.exe")
     if ret != 0:
         return ret
-    print "\n===== Testing Win32 ====="
+    print("\n===== Testing Win32 =====")
     ret = subprocess.call("Binaries/Win32/Test_Foundation-release.exe")
     return ret
     
@@ -117,11 +117,11 @@ def build_release():
     # Build content
     run_builder("Content", target_path+"Content", False)
     
-    print "Release '" + release_name + "' built."
+    print("Release '" + release_name + "' built.")
 
 def main(argv):
     if len(argv) < 2:
-        print "Usage: "+argv[0]+" <action>"
+        print("Usage: "+argv[0]+" <action>")
         return
 
     if argv[1] == "setup":
